@@ -1,0 +1,95 @@
+<div class="panel-body">
+    <div class ="col-md-offset-0.8">
+        <div class = "col-md-4">
+            <img class="entrenador" src="../imagenes/lucho.png">
+            <p class="classname"><b>Nombre:</b> {{EntrenadorController.entrenadores.nombre}}</p>
+            <p class="classname"><b>Dinero:</b> ${{EntrenadorController.entrenadores.dinero}}</p>
+            <p class="classname"><b>Experiencia:</b> {{EntrenadorController.entrenadores.experiencia}}</p>
+            <p class="classname"><b>Nivel:</b>  {{EntrenadorController.entrenadores.getNivel()}}</p>
+            <p class="classname"><b>Perfil:</b>  {{EntrenadorController.entrenadores.tipoDeEntrenador.nombre}}</p>
+        </div>
+    </div>
+
+    <div class="col-md-offset-1">
+        <div class="col-md-3">
+            <h3 class="tituloTabla">Pokemons atrapados</h3>
+            <table class="table table-bordered">
+                    <thead>
+                            <tr>
+                              <th>Pok&eacute;mon</th>
+                              <th>Nivel</th>
+                              <th></th>
+                            </tr>
+                            </thead>
+             <tbody>
+            <!-- <tr data-ng-repeat="pokemon in EntrenadorController.entrenadores.equipo" ng-click="EntrenadorController.seleccionarPokemon(pokemon)" ng-show="pokemon.mostrar()"> -->
+                <tr data-ng-repeat="pokemon in EntrenadorController.pokemones" ng-click="EntrenadorController.seleccionarPokemon(pokemon)" >
+                <td> <a href="">{{pokemon.especie.nombre}}</a></td>
+                       <td> {{pokemon.getNivel()}}</td> 
+                       <td><img class="iconoTabla" src="./imagenes/jugadores.png"></td>
+                    </tr>
+
+                    <tr data-ng-repeat="pokemon in EntrenadorController.deposito" ng-click="EntrenadorController.seleccionarPokemon(pokemon)">
+                        <td> {{pokemon.especie.nombre}}</td>
+                       <td> {{pokemon.getNivel()}}</td> 
+                       <td></td>
+                    </tr>  
+             </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="div" ng-show="EntrenadorController.pokemonSeleccionado">
+        <div class="col-md-offset-1">
+            <div class="col-md-3">
+                <img class="iconoFlecha" src="../imagenes/flecha.png">
+                <img class="entrenador" src="../imagenes/{{EntrenadorController.pokemonSeleccionado.especie.nombre}}.png">
+            </div>
+        </div>
+        <div class="col-md-offset">
+            <div class="col-md">
+                <p class="classname"><b>Especie:</b> {{EntrenadorController.pokemonSeleccionado.especie.nombre}}</p>
+                <p class="classname"><b>Tipo:</b>{{EntrenadorController.pokemonSeleccionado.tipo.nombre}}</p>
+                <p class="classname"><b>Nombre:</b>{{EntrenadorController.pokemonSeleccionado.nombre}}</p>
+                <p class="classname"><b>Nivel:</b>{{EntrenadorController.pokemonSeleccionado.getNivel()}}</p>
+                <p class="classname"><b>Experiencia:</b> {{EntrenadorController.pokemonSeleccionado.experiencia}}</p>
+                <p class="classname"><b>G&eacute;nero:</b>{{EntrenadorController.pokemonSeleccionado.sexo}}</p>
+                
+            </div>
+            
+            <div>
+                <p align="left"><b>PS:</b> {{EntrenadorController.pokemonSeleccionado.salud}} / {{EntrenadorController.pokemonSeleccionado.getPuntosDeSaludMaxima()}}</p>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress1" role="progressbar" aria-valuemax="100" style="width:{{EntrenadorController.pokemonSeleccionado.getPorcentajeSalud()}}%;">
+                </div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    </div>
+    <div class="panel-body">
+    <div class="col-md-offset-4">
+        <div class="col-md-4">
+            <h3 class="tituloTabla">Inventario</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <th>&Iacute;tem</th>
+                    <th>Cantidad</th>
+                </tr>
+                <tbody>
+                <tr data-ng-repeat="pokebola in EntrenadorController.pokebolas">
+                    <td> {{pokebola.nombre}}</td>
+                    <td> {{pokebola.cantidad}}</td>
+                </tr>
+                <tr data-ng-repeat="pocion in EntrenadorController.pociones">
+                   <td>{{pocion.nombre}}</td>
+                    <td>{{pocion.cantidad}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

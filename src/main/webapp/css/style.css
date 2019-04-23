@@ -1,0 +1,73 @@
+.imagenBanner{ 
+    width: 40px;
+
+}
+.tableButton{
+	width: 50px;
+	height: 200px;
+}
+
+.banner{ 
+    height: 80px;
+
+}
+.progress1 {   
+    border: 0;  
+    height: 12px;  
+    border-radius: 9px;  
+}
+
+.letratitu{
+    font-size: large; 
+    color: #000000;
+}
+
+.iconoEntrenador{
+    color: #000000;
+    font-size: 1.5em;
+    left: 26em;
+    padding-bottom: 2em;
+    
+}
+
+.iconoElMundo{
+    color: #000000;
+    font-size: 1.5em;
+    left: 28em;
+}
+
+.iconoTabla {
+    width:40px;
+}
+
+.iconoFlecha {
+    width:80px;
+    height:160px;
+}
+
+.entrenador {
+    width:160px;
+    height:160px;
+}
+
+th {
+    background-color: #f5f5f5
+}
+
+.tituloTabla {
+    text-align: left
+}
+
+.ubicarBoton {
+    right: 29em;
+}
+
+.classname {
+    color: #333333;
+    font-family: Copperplate / Copperplate Gothic Light, sans-serif;
+    font-size: 1em ;
+    text-orientation: 2em
+    }
+
+    
+    

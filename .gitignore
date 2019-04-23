@@ -1,0 +1,7 @@
+/target/
+/src/main/generated-sources/xtend/
+/src/test/generated-sources/xtend/
+.project
+.classpath
+.settings
+/bin/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pokemonApp">
+
+<head>
+    <title>Pokemon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <!-- BOOTSTRAP -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- ANGULAR  -->
+ <script src="node_modules/angular/angular.min.js"></script>
+ <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+ <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+ <script src="node_modules/underscore/underscore.js"></script>
+ 
+</head>
+
+<body>   <!--   ng-controller="pokemonCtrl as pokemon"  //preguntar esto, va aca? va en el partials?  -->
+
+    <nav class="navbar navbar-default banner">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="mundo">
+                <img class="iconoTabla" src="./imagenes/pokebola.png">
+               <a class="navbar-brand" > 
+                   <h3 class= "letratitu"><b> Pokemon Al Go 3 </b> <span class="label label-default "></h3></a>
+                <a class="navbar-brand letratitu"  ui-sref="entrenador "> 
+        <span class="glyphicon glyphicon-user iconoEntrenador" > Entrenador</span></a>
+                <a class="navbar-brand letratitu" ui-sref="mundo"> 
+        <span class="glyphicon glyphicon-map-marker iconoElMundo"> El mundo</span></a>
+            </div>
+        </div>
+        <div class="well-lg">
+            <div ui-view></div>
+        </div>
+        <script src="./src/webapp/domain/nivel.js"></script>
+        <script src="./src/webapp/domain/entrenador.js"></script>
+        <script src="./src/webapp/domain/pocion.js"></script>
+        <script src="./src/webapp/domain/pokebola.js"></script>
+        <script src="./src/webapp/domain/tipo.js"></script>
+        <script src="./src/webapp/domain/especie.js"></script>
+        <script src="./src/webapp/domain/pokemon.js"></script>
+        <script src="./src/webapp/domain/pokeparada.js"></script>
+        <script src="./src/webapp/js/services/entrenador.js"></script>
+        <script src="./src/webapp/js/services/pokeparada.js"></script>
+        <script src="./src/webapp/js/services/oponente.js"></script>
+        <script src="./src/webapp/js/services/pokemonSalvaje.js"></script>
+        <script src="./src/webapp/js/component/atraparPokemon.js"></script>
+        <script src="./src/webapp/js/controllers/entrenador.js"></script>
+        <script src="./src/webapp/js/controllers/mundo.js"></script>
+        <script src="./src/webapp/routes.js"></script>
+        <script src="./src/webapp/app.js"></script>
+        
+    </nav>

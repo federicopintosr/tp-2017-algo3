@@ -1,0 +1,179 @@
+<div class="panel-body">
+    <div class="col-md-offset-2">
+        <div class="col-md-4">
+            <table>
+                <tr>
+                    <th></th>
+                    <th><button id="Boton Norte" class="btn btn-info" autofocus="true" ng-click="MundoController.moverAlNorte()">
+                                      <i class="fa fa-search" aria-hidden="true"></i>N</button></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th><button id="Boton Oeste" class="btn btn-info" autofocus="true" ng-click="MundoController.moverAlOeste()">
+                                      <i class="fa fa-search" aria-hidden="true"></i>O</button>
+                    </th>
+                    <th></th>
+                    <th><button id="Boton Este" class="btn btn-info" autofocus="true" ng-click="MundoController.moverAlEste()">
+                                          <i class="fa fa-search" aria-hidden="true"></i>E</button></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><button id="Boton Sur" class="btn btn-info" autofocus="true" ng-click="MundoController.moverAlSur()">
+                                          <i class="fa fa-search" aria-hidden="true"></i>S</button></th>
+                    <th></th>
+                </tr>
+
+            </table>
+            <tr>
+                    <div class="col-md-2" align="center">
+                            <p align="left">
+                <img class="iconoTabla" src="./imagenes/location-alt-512.png"></p>
+                    </div>
+            </tr>
+                <div class="row form-group">
+                    <div class="col-md-6" align="center">
+                        <p align="left">
+                            <b>X:</b> {{MundoController.entrenadores.ubicacionJugador.x.toFixed(3)}}</p>
+                    </div>
+                    <div class="col-md-8" align="center">
+                        <p align="left">
+                            <b>Y:</b> {{MundoController.entrenadores.ubicacionJugador.y.toFixed(3)}}</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- OPONENTES -->
+
+    <div class="col-md-offset-6">
+        <div class="col-md-10">
+            <h3 class="tituloTabla">Oponentes</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Entrenador</th>
+                    <th>Pok&eacute;mon</th>
+                    <th>Apuesta</th>
+                    <th></th>
+                </tr>
+                <tr data-ng-repeat="entrenador in MundoController.oponentesCercanos">
+                    <td>{{entrenador.nombre}}</td>
+                    <td>{{entrenador.pokemonRival.nombre}}</td>
+                    <td>{{entrenador.apuesta}}</td>
+                    <td>
+                        <button type="button" ng-click="MundoController.seleccionarOponente(oponente)" data-toggle="modal" 
+                        data-target="#elegirPokemonModal"><img class="iconoTabla" src="./imagenes/peleas.png"></button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- POKEMONES SALVAJES -->
+
+
+
+<div class="panel-body">
+    <div class="col-md-offset-6">
+        <div class="col-md-6">
+            <h3 class="tituloTabla">Pok&eacute;mones salvajes</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered" align="right">
+                    <tr>
+                        <th>Pok&eacute;mon</th>
+                        <th>Nivel</th>
+                        <th></th>
+                    </tr>
+                    <tr data-ng-repeat="pokemon in MundoController.pokemonesSalvajes">
+                        <td>{{pokemon.especie.nombre}}</td>
+                        <td>{{pokemon.getNivel()}}</td>
+                        <td>
+                            <button ng-click="MundoController.seleccionarPokemonSalvaje(pokemon)" data-toggle="modal" 
+                            data-target="#elegirPokebolaModal"><img class="iconoTabla" src="./imagenes/pokebola.png"></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+                            <div class="alert alert-success" ng-show="MundoController.alertaAtrapar">
+                                    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong> ¡Bien hecho!</strong> Has capturado al Pokemon!!
+                                </div>
+                                <div class="alert alert-danger" ng-show="!MundoController.alertaAtrapar">
+                                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong> ¡Mal hecho!</strong> No Has capturado al Pokemon!!
+                                    </div>
+
+        </div>
+        
+
+
+
+        <!-- POKEPARADAS -->
+
+        <div class="col-md-4">
+            <h3 class="tituloTabla">Pokeparadas</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Pokeparada</th>
+                        <th></th>
+                    </tr>
+                    <tr data-ng-repeat="pokeparada in MundoController.pokeparadasCercanas">
+                        <td>{{pokeparada.nombre}}</td>
+                        <td><button type="button" ng-click="MundoController.curarEquipo(pokeparada)"><img class="iconoTabla" src="./imagenes/hospital.png"></button></td>   
+                    </tr>
+                </table>
+                             <div class="alert alert-success" ng-show="MundoController.alerta">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong> ¡Bien hecho!</strong> Has curado a tu equipo satisfactoriamente!!
+                            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="elegirPokebolaModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Elegir pokebola</h3>
+                </div>
+                <div class="modal-body">
+                    <form name="elegirPokebola" role="form">
+                        <label for="pokebola">Pokebola</label>
+                        <select name="pokebola" class="form-control" ng-model="MundoController.pokebolaElegida" ng-options="pokebola as pokebola.nombre for pokebola in MundoController.pokebolas"
+                            required="true">
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button ng-disabled="!MundoController.pokebolas.includes(MundoController.pokebolaElegida)" type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="MundoController.atrapar(MundoController.pokemonSalvajeSeleccionado,MundoController.pokebolaElegida)">Atrapar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="elegirPokemonModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Elegir pokemon a Combatir</h3>
+            </div>
+            <div class="modal-body">
+                <form name="elegirPokebola" role="form">
+                    <label for="pokebola">Pokemon</label>
+                    <select name="pokebola" class="form-control" ng-model="MundoController.pokemonElegido" ng-options="pokemon as pokemon.nombre for pokemon in MundoController.pokemones"
+                        required="true">
+                        </select>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button ng-disabled="!MundoController.pokemones.includes(MundoController.pokemonElegido)" type="button" class="btn btn-primary" data-dismiss="modal" data-ng-click="MundoController.combatir(MundoController.pokemonElegido,MundoController.rivalSeleccionado)">Combatir</button>
+            </div>
+        </div>
+    </div>
+</div>
